@@ -119,19 +119,21 @@ function sum(){
 
 var calculation = sum(1,2,3,4);
 
-console.log(calculation);
 console.assert(sum(1,2,3,4) == 10);
 console.assert(sum(-1, -2, -3, -4) == -10);
 
 function multiply(){
     "use strict";
-    var calculation = 0;
+    var calculation = 1;
     var numbersArray = arguments.length;
     for(var i=0; i < numbersArray; i++){
-      calculation += arguments[i];
+      calculation = calculation * arguments[i];
     }
     return calculation;
 }
+
+console.assert(multiply(4,15,21,30,25) == 945000);
+console.assert(multiply(-4,15,-21,-30,-25) == 945000);
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
@@ -148,9 +150,17 @@ function reverse(){
 
 function findLongestWord(words){
     "use strict";
-    //...
+    var longestWord = 0;
+    for(var i=0; i<arguments.length; i++){
+      if(arguments[i].length > longestWord){
+        longestWord = arguments[i].length;
+      }
+    }
+    return longestWord;
 }
 
+console.log(findLongestWord('rene', 'flabbergasted', 'kaitlyn'));
+console.assert(findLongestWord('Super', 'Alex', 'customs', 'compliance') == 10);
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 // ---------------------
