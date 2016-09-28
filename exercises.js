@@ -191,11 +191,11 @@ function charFreq(string){
     "use strict";
       var frequency = {};
       for (var i=0; i < string.length; i++){
-        var currChar = string.charAt(i);
-        if (currChar in frequency) {
-          frequency[currChar] += 1;
+        var current = string.charAt(i);
+        if (current in frequency) {
+          frequency[current] += 1;
           }else{
-          frequency[currChar] = 1;
+          frequency[current] = 1;
         }
       }
     return frequency;
