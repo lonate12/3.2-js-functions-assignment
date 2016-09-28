@@ -191,7 +191,7 @@ function charFreq(string){
     "use strict";
       var frequency = {};
       for (var i=0; i < string.length; i++){
-        var current = string.charAt(i);
+        var current = string[i];
         if (current in frequency) {
           frequency[current] += 1;
           }else{
@@ -201,4 +201,4 @@ function charFreq(string){
     return frequency;
   }
 console.log(charFreq('abbabcbdbabdbdbabababcbcbab'));
-console.assert(charFreq('abbabcbdbabdbdbabababcbcbab') == {a: 7, b: 14, c: 3, d: 3});
+console.assert(charFreq('abbabcbdbabdbdbabababcbcbab') == {'a': 7, 'b': 14, 'c': 3, 'd': 3});
