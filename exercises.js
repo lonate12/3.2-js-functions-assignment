@@ -98,7 +98,7 @@ function rovarspraket(phrase){
     }
 }
 
-console.log(rovarspraket('I want to go to the store'));
+// console.log(rovarspraket('I want to go to the store'));
 console.assert(rovarspraket('What') === 'WoWhohatot');
 console.assert(rovarspraket(345) === 'This is not a string');
 
@@ -139,10 +139,15 @@ console.assert(multiply(-4,15,-21,-30,-25) == 945000);
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
 
-function reverse(){
+function reverse(string){
     "use strict";
-    //...
+    var reversedWord;
+    reversedWord = string.split('').reverse().join('');
+    return reversedWord;
 }
+
+console.assert(reverse('Kait') == 'tiaK');
+console.assert(reverse('jag testar') == 'ratset gaj');
 
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
@@ -159,7 +164,7 @@ function findLongestWord(words){
     return longestWord;
 }
 
-console.log(findLongestWord('rene', 'flabbergasted', 'kaitlyn'));
+// console.log(findLongestWord('rene', 'flabbergasted', 'kaitlyn'));
 console.assert(findLongestWord('Super', 'Alex', 'customs', 'compliance') == 10);
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
@@ -167,8 +172,16 @@ console.assert(findLongestWord('Super', 'Alex', 'customs', 'compliance') == 10);
 
 function filterLongWords(words, i){
     "use strict";
-    //...
+    var longWords=[];
+    for(var j=0; j<words.length; j++){
+      if(words[j].length > i){
+        longWords.push(words[j]);
+      }
+    }
+    return longWords;
 }
+
+console.log(filterLongWords(['Tom', 'Benjamin', 'Kait', 'Al'], 2));
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
@@ -176,5 +189,16 @@ function filterLongWords(words, i){
 
 function charFreq(string){
     "use strict";
-    //...
-}
+      var frequency = {};
+      for (var i=0; i < string.length; i++){
+        var currChar = string.charAt(i);
+        if (currChar in frequency) {
+          frequency[currChar] += 1;
+          }else{
+          frequency[currChar] = 1;
+        }
+      }
+    return frequency;
+  }
+console.log(charFreq('abbabcbdbabdbdbabababcbcbab'));
+console.assert(charFreq('abbabcbdbabdbdbabababcbcbab') == {a: 7, b: 14, c: 3, d: 3});
